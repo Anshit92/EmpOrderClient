@@ -14,15 +14,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-@Controller
+@RestController
 public class EmpOrderController {
 	
 	
@@ -65,11 +67,11 @@ public class EmpOrderController {
 		return mav;
 	}
 	
-	@RequestMapping("/empinsert")
-	public ModelAndView empController(HttpServletRequest request,HttpServletResponse responses){ 
-		String name= request.getParameter("name");
+	@RequestMapping(value="/empinsert",method=RequestMethod.GET)
+	public ModelAndView empController(HttpServletRequest request,HttpServletResponse responses,@RequestParam("name") String name,@RequestParam("age") int age,@RequestParam("gender") String gender){ 
+		/*String name= request.getParameter("name");
 		int age =Integer.parseInt(request.getParameter("age"));
-		String gender= request.getParameter("gender");
+		String gender= request.getParameter("gender");*/
 		ModelAndView mav=new ModelAndView();
 		JSONObject json= new JSONObject();
 		json.put("name",name);
@@ -95,7 +97,7 @@ public class EmpOrderController {
 		return mav;
 	}
 	
-	@RequestMapping("/orderinsert")
+	@RequestMapping(value="/orderinsert",method=RequestMethod.GET)
 	public ModelAndView ordersController(HttpServletRequest request,HttpServletResponse responses){ 
 		String name= request.getParameter("name");
 		String desc= request.getParameter("description");

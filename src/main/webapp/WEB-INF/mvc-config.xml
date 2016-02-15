@@ -18,5 +18,8 @@
 	        <property name="prefix" value="/WEB-INF/view/"/>
 	        <!-- <property name="suffix" value=".jsp"/>-->
 	</bean>
-
+	
+	<bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig">
+	</bean>
+ <mvc:default-servlet-handler/>
 </beans>
