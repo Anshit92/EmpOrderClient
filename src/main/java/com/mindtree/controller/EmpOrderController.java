@@ -106,7 +106,7 @@ public class EmpOrderController {
 		String msg=null;
 		try {
 			Client client = Client.create();
-			WebResource webResource = client.resource("http://localhost:8080/EmpOrderRest/api/insertOrder/");
+			WebResource webResource = client.resource("http://localhost:8080/EmpOrderRest/api/insertOrder");
 			ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json.toString());
 		if (response.getStatus() == 200){
 			msg="Order entry inserted Successfully";

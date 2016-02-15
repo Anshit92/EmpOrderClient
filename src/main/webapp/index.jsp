@@ -23,9 +23,9 @@
 	<input type="submit" value="Retrieve the Records">
 	</form>
 	
-	<h2>Run flyway : DB versioning</h2>
+<!-- 	<h2>Run flyway : DB versioning</h2>
 	<form action="flyways">
 	<input type="submit" value="Migrate DB">
-	</form>
+	</form> -->
 </body>
 </html>
