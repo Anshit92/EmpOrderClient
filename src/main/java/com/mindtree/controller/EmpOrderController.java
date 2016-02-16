@@ -11,6 +11,8 @@ import java.nio.charset.Charset;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,11 +25,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 
+@Path("/")
 @RestController
+@Api(value="employee order records", description="Operations pertaining to Online Store")
 public class EmpOrderController {
 	
-	
+	@ApiOperation("to go to insert page")
 	@RequestMapping("/tables")
 	public ModelAndView tables(HttpServletRequest request,HttpServletResponse responses)
 	{
@@ -67,6 +73,7 @@ public class EmpOrderController {
 		return mav;
 	}
 	
+	@ApiOperation(value="to insert employee records",response=EmpOrderController.class)
 	@RequestMapping(value="/empinsert",method=RequestMethod.GET)
 	public ModelAndView empController(HttpServletRequest request,HttpServletResponse responses,@RequestParam("name") String name,@RequestParam("age") int age,@RequestParam("gender") String gender){ 
 		/*String name= request.getParameter("name");
@@ -87,7 +94,7 @@ public class EmpOrderController {
 					}
 			else {
 				msg="Cannot insert the records";
-				throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());	
+				throw new RuntimeException("Why Failed : HTTP error code : " + response.getStatus());	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -97,10 +104,9 @@ public class EmpOrderController {
 		return mav;
 	}
 	
+	@ApiOperation("to insert order records")
 	@RequestMapping(value="/orderinsert",method=RequestMethod.GET)
-	public ModelAndView ordersController(HttpServletRequest request,HttpServletResponse responses){ 
-		String name= request.getParameter("name");
-		String desc= request.getParameter("description");
+	public ModelAndView ordersController(HttpServletRequest request,HttpServletResponse responses,@RequestParam("name") String name,@RequestParam("description") String desc){ 
 		ModelAndView mav=new ModelAndView();
 		JSONObject json= new JSONObject();
 		json.put("name",name);
@@ -124,6 +130,7 @@ public class EmpOrderController {
 		return mav;
 	}
 	
+	@ApiOperation("To fetch and display records")
 	@RequestMapping("/display")
 	public ModelAndView display(HttpServletRequest request,HttpServletResponse responses){ 
 		String table= request.getParameter("table");
