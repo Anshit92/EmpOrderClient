@@ -59,7 +59,7 @@
 										
 									</artifacts>
 									<keep>true</keep>
-									<nameAndTag>anshit92/${project.basedir}:${project.version}</nameAndTag>
+									<nameAndTag>anshit92/${project.artifactId}:${project.version}</nameAndTag>
 								<!--	<registry>registry.hub.docker.com</registry> -->
 									<push>true</push>
 								</image>
