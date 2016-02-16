@@ -35,7 +35,7 @@
 			
 				<groupId>net.wouterdanes.docker</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
-			  <version>3.1.0</version>
+			  <version>5.0.0</version>
 				<executions>
 					<execution>
 						<id>build</id>
@@ -67,12 +67,12 @@
 						</configuration>
 					</execution>
 					
-					<execution>
+					<!-- <execution>
 						<id>push</id>
 						<goals>
 							<goal>push-images</goal>
 						</goals>
-					</execution>
+					</execution> -->
 				</executions>
 			</plugin>
 			<plugin>
