@@ -1,8 +1,9 @@
-FROM preetick/jvcatenv:v1
+#FROM preetick/jvcatenv:v1
+FROM ashishchaturvedi/tomcatjava
 
 MAINTAINER M1017042
 
-RUN apt-get update
+#RUN apt-get update
 
 # Location of presentation URL
 ADD EmpOrderClient.war /webapps/ 
