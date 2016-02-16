@@ -4,7 +4,8 @@
   <artifactId>EmpOrderClient</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <pluginRepositories>
+ 
+ <pluginRepositories>
 <pluginRepository>
 <id>sonatype-oss-snapshots</id>
 <name>Sonatype OSS Snapshots</name>
@@ -14,6 +15,7 @@
 </pluginRepositories>
 
  <build>
+ <sourceDirectory>src</sourceDirectory>
 <plugins>
     <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -43,7 +45,7 @@
 						<configuration>
 							<images>
 								<image>
-									<id>EmployeeOrderRest</id>
+									<id>EmpOrderClient</id>
 									<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
 									<keep>true</keep>
 									<artifacts>
